@@ -1,0 +1,34 @@
+<html lang="en">
+
+<head>
+    <% include ../layouts/head %>
+</head>
+
+<body class="container">
+    <% include ../layouts/header%>
+        <div class="main-content">
+            <div class="main">
+                <form action="/user/edit/<%=data.id%>" method="post">
+                    <div class="new">
+                        <h2>EDIT</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="usr">Title :</label>
+                        <br/>
+                        <input type="text" class="form-control" name="title" placeholder="title" value="<%=data.title%>">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Content:</label>
+                        <br/>   
+                        <textarea name="content" cols="70" rows="8"><%=data.body%></textarea>
+                    </div>
+                    <button style="margin-left : 400px" type="submit">
+                        <i class="far fa-plus-square"></i> EDIT</button>
+                </form>
+            </div>
+            <% include ../layouts/sidebar %>
+        </div>
+        <% include ../layouts/footer %>
+</body>
+
+</html>

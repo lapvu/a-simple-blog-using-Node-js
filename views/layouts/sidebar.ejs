@@ -1,0 +1,40 @@
+<div class="sidebar">
+    <div class="search">
+        <label>search :</label>
+        <br/>
+        <input type="text" placeholder="Search" id="search">
+        <button id="search_click">Search</button>
+    </div>
+    <div class="menu">
+        <ul>
+            <li>
+                <i class="fas fa-home fa-fw"></i>
+                <a href="/"> home</a>
+            </li>
+            <li>
+                <i class="far fa-address-book"></i>
+                <a href="/about"> about</a>
+            </li>
+            <% if( !user ){%>
+                <li>
+                    <i class="fas fa-sign-in-alt"></i>
+                    <a href="/user/login"> login</a>
+                </li>
+                <li>
+                    <i class="fas fa-user-plus"></i>
+                    <a href="/user/signup">signup</a>
+                </li>
+                <%}else{%>
+                    <li>
+                        <i class="fas fa-align-justify"></i>
+                        <a href="/user/1">dashboard</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-sign-out-alt"></i>
+                        <a href="/user/logout">logout</a>
+                    </li>
+                    <% }%>
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <% include ../layouts/head %>
+</head>
+
+<body class="container">
+    <% include ../layouts/header%>
+        <div class="main-content">
+            <div class="main">
+                <% post.forEach((data)=>{%>
+                    <div class="item">
+                        <h2>
+                            <a href="/post/<%=data.id%>">
+                                <%=data.title%>
+                            </a>
+                        </h2>
+                        <% var mt = data.body.slice(0,10)%>
+                            <% var date = JSON.stringify(data.date)%>
+                                <p>
+                                    <%=mt%>...
+                                </p>
+                                <%=data.views%>
+                                    <i class="fas fa-eye"></i>&nbsp;&nbsp; &nbsp;&nbsp;
+                                    <%= date.slice(1,11) %>
+                                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <%})%>
+                        <div class="load">
+
+                        </div>
+                        <button id="load">Load more</button>
+            </div>
+            <% include ../layouts/sidebar %>
+        </div>
+        <% include ../layouts/footer %>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="/js/javascript.js"></script>
+</body>
+
+</html>

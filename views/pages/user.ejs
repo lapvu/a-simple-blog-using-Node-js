@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <% include ../layouts/head %>
+</head>
+
+<body class="container">
+    <% include ../layouts/header%>
+        <div class="main-content">
+            <div class="main">
+                <a href="/user/add-new">
+                    <button>
+                        <i class="far fa-plus-square"></i> new post</button>
+                </a>
+                <table id="post">
+                    <tr>
+                        <th>title</th>
+                        <th>id</th>
+                        <th>views</th>
+                        <th>likes</th>
+                        <th>edit - delete</th>
+                    </tr>
+                    <% data.forEach((data)=>{%>
+                        <tr>
+                            <td>
+                                <%=data.title%>
+                            </td>
+                            <td>
+                                <%=data.id%>
+                            </td>
+                            <td>
+                                <%=data.views%>
+                            </td>
+                            <td>
+                                <%=data.like%>
+                            </td>
+                            <td>
+                                <i class="fas fa-edit"></i>
+                                <a href="/user/edit/<%=data.id%>"> edit</a>
+                                <i class="fas fa-trash-alt"></i>
+                                <a href="/user/delete/<%=data.id%>"> delete</a>
+                            </td>
+                        </tr>
+                        <%})%>
+                </table>
+                <% if(pages>1){%>
+                    <button onclick="previous()">
+                        <i class="fas fa-arrow-left"></i> Previous</button>
+                    <%}%>
+                        <% var a = count/pages %>
+                            <% if(a>6 && a%6 != 0){%>
+                                <button onclick="next()">Next
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <%}%>
+            </div>
+            <% include ../layouts/sidebar %>
+        </div>
+        <% include ../layouts/footer %>
+            <script>
+                var str = window.location.pathname;
+                var page = str.split('/');
+                var pageint = parseInt(page[2]);
+                const next = () => {
+                    var nextpage = pageint + 1;
+                    return window.location = 'http://localhost:3000/user/' + nextpage;
+                }
+                const previous = () => {
+                    var nextpage = pageint - 1;
+                    return window.location = 'http://localhost:3000/user/' + nextpage;
+                }
+            </script>
+</body>
+
+</html>

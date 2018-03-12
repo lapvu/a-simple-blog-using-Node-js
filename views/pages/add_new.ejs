@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <% include ../layouts/head %>
+    <style>
+     .form-group p{
+         color: red;
+     }
+    </style>
+</head>
+
+<body class="container">
+    <% include ../layouts/header%>
+        <div class="main-content">
+            <div class="main">
+                <form action="/user/add-new" method="POST">
+                    <div class="new">
+                        <h2>ADD NEW</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="usr">Title :</label>
+                        <br/>
+                        <input type="text" class="form-control" id="usr" name="title" placeholder="title" value="<%=data.title%>">
+                        <% if(errors.title){%>
+                            <p>
+                                <%=errors.title.msg%>
+                            </p>
+                            <%}%>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Content:</label>
+                        <br/>
+                        <textarea name="content" cols="70" rows="8"><%=data.content%></textarea>
+                        <% if(errors.content){%>
+                            <p>
+                                <%=errors.content.msg%>
+                            </p>
+                            <%}%>
+                    </div>
+                    <button style="margin-left : 400px" type="submit">
+                        <i class="far fa-plus-square"></i> ADD NEW</button>
+                </form>
+            </div>
+            <% include ../layouts/sidebar %>
+        </div>
+        <% include ../layouts/footer %>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <% include ../layouts/head %>
+</head>
+
+<body class="container">
+    <% include ../layouts/header%>
+        <div class="main-content">
+            <div class="main">
+                <div class="post">
+                    <h1>
+                        <%=data.title%>
+                    </h1>
+                    <%=data.views%>
+                        <i class="fas fa-eye"></i>&nbsp;&nbsp;
+                        <p>
+                            <%=data.body%>
+                        </p>
+                </div>
+            </div>
+            <% include ../layouts/sidebar %>
+        </div>
+        <% include ../layouts/footer %>
+</body>
+
+</html>
